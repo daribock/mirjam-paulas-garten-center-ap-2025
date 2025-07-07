@@ -31,12 +31,12 @@ Paula's Garden ist eine liebevoll gestaltete Website für ein Gartencenter, die 
 ```
 📦 Paula's Garden Center
 ├── 📄 index.html                          # Hauptseite mit Navigation
-├── 📄 pages/paulas-garden-lovestory.html       # Geschichte des Gartencenters
+├── 📄 paulas-garden-lovestory.html       # Geschichte des Gartencenters
 ├── 📄 Paulas_Garden_Lovestory_page2.html # Fortsetzung der Geschichte
 ├── 📄 Paulas_Garden_Lovestory_page3.html # Dritter Teil der Geschichte
-├── 📄 pages/bluehende-angebote.html             # Aktuelle Angebote
+├── 📄 bluehende-angebote.html             # Aktuelle Angebote
 ├── 📄 freude-schenken.html               # Geschenkideen
-├── 📄 Freude_Schenken_page2.html         # Weitere Geschenkideen
+├── 📄 freude-schenken-2.html         # Weitere Geschenkideen
 ├── 📄 gruene-events.html                  # Veranstaltungen
 ├── 📄 blueten-news.html                   # Neuigkeiten und News
 ├── 📄 index.css                  # Hauptstylesheet

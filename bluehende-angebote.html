@@ -7,200 +7,199 @@
       name="viewport"
       content="width=1366, height=1024, initial-scale=1.0"
     />
-    <title>Paulua's Garden</title>
+    <title>Paula's Garden</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
 
-  <body style="opacity: 0">
+  <body class="d-flex gap-5">
     <!--Side Navigation mit Off-Canvas-->
-    <nav
-      class="bg-pink d-flex flex-column align-items-start p-3 position-absolute"
-      style="height: 100vh; width: 115px"
-    >
-      <!-- Logo im Menü-->
-      <img
-        src="../images/Logo/Logo_tsp.png"
-        alt="Logo Paulas Garden"
-        class="w-100 mt-3 mb-5"
-      />
-      <!-- Nur Burger-Icon oben -->
-      <button
-        class="navbar-toggler mt-5 mx-auto justify-content-center"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar"
-        aria-label="Toggle navigation"
+    <aside>
+      <nav
+        class="bg-pink d-flex flex-column align-items-center vh-100"
+        style="width: 115px"
       >
-        <img src="../images/Burger_Menü_Icon.svg" alt="Burger_Menü_Icon" />
-      </button>
+        <!-- Logo im Menü-->
+        <img
+          src="assets/images/logo/logo.png"
+          alt="Logo Paulas Garden"
+          class="w-100 p-3 mt-3"
+        />
+        <!-- Nur Burger-Icon oben -->
+        <button
+          class="navbar-toggler p-3 mt-5"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <img src="assets/icons/burger-menu-icon.svg" alt="Burger_Menü_Icon" />
+        </button>
+        <!-- Offcanvas Menü (links) -->
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <!-- Logo im Menü-->
+            <img
+              src="assets/images/logo/logo.png"
+              alt="Logo Paulas Garden"
+              class="w-25 mt-3"
+            />
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
 
-      <!-- Offcanvas Menü (links) -->
-      <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
-        <div class="offcanvas-header">
-          <!-- Logo im Menü-->
-          <img
-            src="../images/Logo/Logo_tsp.png"
-            alt="Logo Paulas Garden"
-            class="w-25 mt-3 mb-5"
-          />
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
+          <div class="offcanvas-body mt-5" style="max-width: 450px">
+            <div class="row row-cols-2 g-3">
+              <!-- START (allein oben) -->
+              <div class="col-12">
+                <div class="nav-klein-box bg-grün rounded-5">
+                  <a
+                    href="index.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h1 class="text-pink fs-5">Start</h1>
+                    <img
+                      src="assets/icons/tree.svg"
+                      class="nav-klein-icon align-self-end align-self-end"
+                      alt="Baum Icon"
+                    />
+                  </a>
+                </div>
+              </div>
 
-        <div class="offcanvas-body" style="max-width: 450px">
-          <ul class="navbar-nav">
-            <!-- START (allein oben) -->
-            <div
-              class="nav-klein-box bg-grün text-white text-decoration-none rounded-5 position-relative overflow-hidden mb-4"
-            >
-              <a
-                href="../index.html"
-                class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-              >
-                <h1 class="text-pink fs-5">Start</h1>
-                <img
-                  src="../images/Startseite/Icons/tree.svg"
-                  class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                  alt="Baum Icon"
-                />
-              </a>
-            </div>
-
-            <!-- Andere Menüpunkte gruppiert -->
-            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <!-- Andere Menüpunkte gruppiert -->
               <!-- Paulas Garden Lovestory -->
-              <div
-                class="nav-klein-box bg-pink text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="paulas-garden-lovestory.html"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-red fs-6">
-                    Paula’s<br />Garden<br />Lovestory
-                  </h2>
-                  <img
-                    src="../images/Startseite/Icons/heart.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Herz Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-pink rounded-5">
+                  <a
+                    href="paulas-garden-lovestory.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-red fs-6">
+                      Paula’s<br />Garden<br />Lovestory
+                    </h2>
+                    <img
+                      src="assets/icons/heart.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Herz Icon"
+                    />
+                  </a>
+                </div>
               </div>
 
               <!-- Blühende Angebote -->
-              <div
-                class="nav-klein-box bg-grün text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="bluehende-angebote.html"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-pink fs-6">Blühende<br />Angebote</h2>
-                  <img
-                    src="../images/Startseite/Icons/flower.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Blume Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-grün rounded-5">
+                  <a
+                    href="bluehende-angebote.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-pink fs-6">Blühende<br />Angebote</h2>
+                    <img
+                      src="assets/icons/flower.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Blume Icon"
+                    />
+                  </a>
+                </div>
               </div>
 
               <!-- Freude schenken -->
-              <div
-                class="nav-klein-box bg-grün text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="freude-schenken.html"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-pink fs-6">Freude<br />schenken</h2>
-                  <img
-                    src="../images/Startseite/Icons/geschenk.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Geschenk Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-grün rounded-5">
+                  <a
+                    href="freude-schenken.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-pink fs-6">Freude<br />schenken</h2>
+                    <img
+                      src="assets/icons/geschenk.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Geschenk Icon"
+                    />
+                  </a>
+                </div>
               </div>
 
               <!-- Grüne Events -->
-              <div
-                class="nav-klein-box bg-pink text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="gruene-events.html"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-red fs-6">Grüne<br />Events</h2>
-                  <img
-                    src="../images/Startseite/Icons/calender.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Kalender Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-pink rounded-5">
+                  <a
+                    href="gruene-events.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-red fs-6">Grüne<br />Events</h2>
+                    <img
+                      src="assets/icons/calender.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Kalender Icon"
+                    />
+                  </a>
+                </div>
               </div>
 
               <!-- Blüten News -->
-              <div
-                class="nav-klein-box bg-pink text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="blueten-news.html"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-red fs-6">Blüten<br />News</h2>
-                  <img
-                    src="../images/Startseite/Icons/paper-plane.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Flugzeug Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-pink rounded-5">
+                  <a
+                    href="blueten-news.html"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-red fs-6">Blüten<br />News</h2>
+                    <img
+                      src="assets/icons/paper-plane.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Flugzeug Icon"
+                    />
+                  </a>
+                </div>
               </div>
 
               <!-- Paulas Garden entdecken -->
-              <div
-                class="nav-klein-box bg-grün text-white text-decoration-none rounded-5 position-relative overflow-hidden"
-              >
-                <a
-                  href="#"
-                  class="d-block w-100 h-100 p-3 text-white text-decoration-none"
-                >
-                  <h2 class="text-pink fs-6">
-                    Paula’s<br />Garden<br />entdecken
-                  </h2>
-                  <img
-                    src="../images/Startseite/Icons/3-trees.svg"
-                    class="nav-klein-icon position-absolute bottom-0 end-0 m-2"
-                    alt="Baum Icon"
-                  />
-                </a>
+              <div class="col">
+                <div class="nav-klein-box bg-grün rounded-5">
+                  <a
+                    href="#"
+                    class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                  >
+                    <h2 class="text-pink fs-6">
+                      Paula’s<br />Garden<br />entdecken
+                    </h2>
+                    <img
+                      src="assets/icons/3-trees.svg"
+                      class="nav-klein-icon align-self-end"
+                      alt="Baum Icon"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
-          </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </aside>
 
     <!-- Inhalts bereich -->
-    <main class="main-content container">
+    <main class="flex-grow-1">
       <!-- Icon oben -->
       <div class="row w-25 mt-4">
         <img
-          src="../images/Startseite/Icons/flower.svg"
+          src="assets/icons/flower.svg"
           class="float-start w-25"
           alt="Blume Icon"
         />
@@ -610,5 +609,11 @@
         </p>
       </article>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
   </body>
 </html>
