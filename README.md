@@ -31,16 +31,16 @@ Paula's Garden ist eine liebevoll gestaltete Website für ein Gartencenter, die 
 ```
 📦 Paula's Garden Center
 ├── 📄 index.html                          # Hauptseite mit Navigation
-├── 📄 paulas-garden-lovestory.html       # Geschichte des Gartencenters
+├── 📄 pages/paulas-garden-lovestory.html       # Geschichte des Gartencenters
 ├── 📄 Paulas_Garden_Lovestory_page2.html # Fortsetzung der Geschichte
 ├── 📄 Paulas_Garden_Lovestory_page3.html # Dritter Teil der Geschichte
-├── 📄 bluehende-angebote.html             # Aktuelle Angebote
+├── 📄 pages/bluehende-angebote.html             # Aktuelle Angebote
 ├── 📄 freude-schenken.html               # Geschenkideen
 ├── 📄 Freude_Schenken_page2.html         # Weitere Geschenkideen
 ├── 📄 gruene-events.html                  # Veranstaltungen
 ├── 📄 blueten-news.html                   # Neuigkeiten und News
 ├── 📄 index.css                  # Hauptstylesheet
-├── 📄 annimation.js                      # JavaScript für Animationen
+├── 📄 index.js                      # JavaScript für Animationen
 ├── 📄 Logo.png                           # Firmenlogo
 └── 📁 fonts/                             # Custom Webfonts
     ├── inter-v19-latin-regular.woff2
@@ -108,7 +108,7 @@ Die Website kann leicht angepasst werden:
 
 - **Farben:** In `index.css` die CSS Custom Properties ändern
 - **Inhalte:** HTML-Dateien direkt bearbeiten
-- **Animationen:** `annimation.js` für neue Effekte erweitern
+- **Animationen:** `index.js` für neue Effekte erweitern
 - **Responsive Design:** Bootstrap-Klassen anpassen
 
 ## 📄 Lizenz
