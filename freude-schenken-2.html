@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Größe des Frames -->
-    <meta
+    <!-- <meta
       name="viewport"
       content="width=1366, height=1024, initial-scale=1.0"
-    />
+    /> -->
     <title>Paula's Garden</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="index.css" />
   </head>
 
-  <body>
+  <body style="opacity: 0">
     <!--Side Navigation mit Off-Canvas-->
     <div class="d-flex content-wrapper gap-5">
       <aside>
@@ -399,10 +399,7 @@
                 <!-- Bildvorschau -->
                 <div class="col">
                   <div class="mb-3">
-                    <div
-                      class="w-100"
-                      style="aspect-ratio: 1748/1240; max-width: 500px"
-                    >
+                    <div class="w-100">
                       <canvas
                         id="voucherCanvas"
                         class="img-fluid border rounded"
@@ -465,7 +462,7 @@
                 <div class="modal-body row">
                   <figure class="col-6">
                     <img
-                      src="Bilder/Gutschein/smile.png"
+                      src="assets/images/gutschein/smile.png"
                       alt=""
                       class="w-100"
                     />
@@ -487,70 +484,6 @@
               </article>
             </div>
           </div>
-
-          <!-- Modal -->
-          <!-- <div
-            class="modal fade"
-            id="successModal"
-            tabindex="-1"
-            aria-labelledby="successModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-              <div class="modal-content p-4 px-5 bg-white rounded-5">
-                <div class="modal-header">
-                  <h1 class="modal-title row mx-3" id="successModalLabel">
-                    Gutschein für Paula's Garden
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Schließen"
-                  ></button>
-                </div>
-                <div class="modal-body row">
-                  <figure class="col-6">
-                    <canvas
-                      id="modalVoucherCanvas"
-                      class="img-fluid border rounded"
-                      style="width: 100%; height: auto"
-                      width="1748"
-                      height="1240"
-                    ></canvas>
-                  </figure>
-                  <section class="col-6 mt-2">
-                    <p class="mt-5">
-                      <strong>
-                        Die Bestellung deines Gutscheins ist eingegangen und
-                        wird für dich gedruckt. </strong
-                      ><br /><br />
-                      Du kannst ihn in 10 Minuten an der Kasse 4 abholen und
-                      direkt mit deinen weiteren Einkäufen bezahlen. Wir
-                      wünschen dir und dem von dir beschenkten Menschen viel
-                      Freude damit.
-                    </p>
-                    <div class="mt-4">
-                      <button
-                        type="button"
-                        class="btn button rounded-4 me-3"
-                        onclick="downloadVoucher()"
-                      >
-                        Gutschein herunterladen
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-4"
-                        data-bs-dismiss="modal"
-                      >
-                        Schließen
-                      </button>
-                    </div>
-                  </section>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </section>
       </main>
     </div>

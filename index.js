@@ -1,186 +1,301 @@
-function showSuccessModal() {
-  // Check multiple ways Bootstrap might be available
-  if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-    // Bootstrap 5 way
-    const modal = new bootstrap.Modal(document.getElementById('successModal'));
-    modal.show();
-  } else if (typeof $ !== 'undefined' && $.fn.modal) {
-    // Bootstrap 4 with jQuery way (fallback)
-    $('#successModal').modal('show');
-  } else if (window.bootstrap && window.bootstrap.Modal) {
-    // Another way to check
-    const modal = new window.bootstrap.Modal(
-      document.getElementById('successModal')
-    );
-    modal.show();
-  } else {
-    // Bootstrap not available - use fallback
-    console.warn('Bootstrap not available, using fallback');
-    alert('Gutschein wurde erfolgreich erstellt!');
-  }
+/**
+ * PAULA'S GARDEN - VOUCHER GENERATOR
+ * Complete JavaScript for creating digital vouchers
+ *
+ * REQUIRED HTML ELEMENTS (must have these exact IDs):
+ * =====================================================
+ * - motivSelect: <select> dropdown for voucher design
+ * - recipientName: <input> text field for recipient name
+ * - amountRadio: <input type="radio"> buttons for amount selection
+ * - betragCostume: <input type="radio"> custom amount option
+ * - wunschbetrag: <input> field for custom amount value
+ * - voucherCanvas: <canvas> element to display voucher preview
+ * - successModal: <div> Bootstrap modal for success message
+ * - form: <form> element containing all inputs
+ *
+ * REQUIRED FILE STRUCTURE:
+ * ========================
+ * - assets/images/gutschein/gutschein-[design].png (background images)
+ * - Bootstrap 5 CSS and JS for modal functionality
+ */
+
+// =============================================================================
+// PAGE ANIMATION - Simple fade-in effect
+// =============================================================================
+
+/**
+ * Creates smooth fade-in animation when page loads
+ * Just add this CSS to your stylesheet for it to work:
+ *
+ * <body style="opacity: 0">
+ */
+function startPageAnimation() {
+  // Define the transition: smooth opacity change over 0.5 seconds
+  document.body.style.transition = 'opacity 0.5s ease-in-out';
+
+  // Small delay to ensure DOM is ready, then start fade-in
+  setTimeout(() => {
+    // Set final state: fully visible
+    document.body.style.opacity = '1';
+  }, 100);
 }
 
-function updatePreview() {
-  const motiv = document.getElementById('motivSelect').value;
-  const recipient =
+// =============================================================================
+// VOUCHER PREVIEW FUNCTIONS - Draw voucher on canvas
+// =============================================================================
+
+/**
+ * Updates the voucher preview whenever something changes
+ * Gets all form values and redraws the canvas
+ */
+function updateVoucherPreview() {
+  // Get design choice from dropdown (REQUIRED: motivSelect)
+  const design = document.getElementById('motivSelect').value;
+
+  // Get recipient name (REQUIRED: recipientName)
+  const name =
     document.getElementById('recipientName').value || 'Max Mustermann';
 
-  const selectedAmount = document.querySelector(
+  // Get selected amount from radio buttons
+  const amount = getSelectedAmount();
+
+  // Draw everything on the canvas
+  drawVoucherOnCanvas(design, name, amount);
+}
+
+/**
+ * Gets the currently selected amount from radio buttons
+ * Handles both fixed amounts (10€, 25€, etc.) and custom amounts
+ */
+function getSelectedAmount() {
+  // Find which radio button is selected (REQUIRED: name="amountRadio")
+  const selectedRadio = document.querySelector(
     'input[name="amountRadio"]:checked'
   );
 
-  let amount;
-  if (selectedAmount) {
-    if (selectedAmount.value === 'costume') {
-      // Use custom amount value
-      const customAmount = document.getElementById('wunschbetrag').value;
-      amount = customAmount || 'Betrag';
-    } else {
-      // Use predefined amount
-      amount = selectedAmount.value;
-    }
-  } else {
-    amount = 'Betrag';
+  // If nothing selected, return default
+  if (!selectedRadio) {
+    return 'Betrag';
   }
 
-  const canvas = document.getElementById('voucherCanvas');
-  const ctx = canvas.getContext('2d');
-  const img = new Image();
+  // Check if custom amount is selected (REQUIRED: value="costume")
+  if (selectedRadio.value === 'costume') {
+    // Get custom amount value (REQUIRED: wunschbetrag)
+    const customAmount = document.getElementById('wunschbetrag').value;
+    return customAmount || 'Betrag';
+  }
 
-  img.onload = function () {
+  // Return the fixed amount (10, 25, 50, 100)
+  return selectedRadio.value;
+}
+
+/**
+ * Draws the voucher on the canvas element
+ * Loads background image and adds text on top
+ */
+function drawVoucherOnCanvas(design, recipientName, amount) {
+  // Get canvas element (REQUIRED: voucherCanvas)
+  const canvas = document.getElementById('voucherCanvas');
+  if (!canvas) return; // Exit if canvas doesn't exist
+
+  // Get drawing context
+  const ctx = canvas.getContext('2d');
+
+  // Create image object for background
+  const backgroundImage = new Image();
+
+  // When image loads, draw everything
+  backgroundImage.onload = function () {
+    // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    // Draw background image
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+    // Set text style
     ctx.fillStyle = 'white';
     ctx.font = 'bold 80px Inter, Arial, sans-serif';
     ctx.textAlign = 'start';
 
-    ctx.fillText(recipient, canvas.width - 2800 / 2, canvas.height - 280);
+    // Draw recipient name
+    ctx.fillText(recipientName, canvas.width - 2800 / 2, canvas.height - 280);
+
+    // Draw amount with € symbol
     ctx.fillText(amount + ' €', canvas.width - 2650 / 2, canvas.height - 185);
   };
-  img.src = `assets/images/gutschein/gutschein-${motiv}.png`;
+
+  // Start loading background image (REQUIRED: correct file path)
+  backgroundImage.src = `assets/images/gutschein/gutschein-${design}.png`;
 }
 
-// Add event listeners for dynamic validation
-document.addEventListener('DOMContentLoaded', function () {
-  const motivSelect = document.getElementById('motivSelect');
-  const recipientInput = document.getElementById('recipientName');
+// =============================================================================
+// FORM VALIDATION - Handle custom amount requirements
+// =============================================================================
+
+/**
+ * Makes custom amount field required only when custom option is selected
+ * Clears field when other options are chosen
+ */
+function updateCustomAmountRequirement() {
+  // Get custom amount elements (REQUIRED: these exact IDs)
   const customRadio = document.getElementById('betragCostume');
-  const customAmountInput = document.getElementById('wunschbetrag');
-  const allRadios = document.querySelectorAll('input[name="amountRadio"]');
+  const customInput = document.getElementById('wunschbetrag');
+
+  if (customRadio.checked) {
+    // Make field required when custom option selected
+    customInput.setAttribute('required', 'required');
+  } else {
+    // Remove requirement and clear field for other options
+    customInput.removeAttribute('required');
+    customInput.value = '';
+  }
+}
+
+// =============================================================================
+// SUCCESS MODAL - Show success message after form submission
+// =============================================================================
+
+/**
+ * Shows success modal using Bootstrap
+ * Falls back to alert if Bootstrap isn't available
+ */
+function showSuccessMessage() {
+  // Try to use Bootstrap modal (REQUIRED: successModal)
+  if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+    modal.show();
+  } else {
+    // Fallback if Bootstrap not loaded
+    alert('Gutschein wurde erfolgreich erstellt!');
+  }
+}
+
+/**
+ * Sets up automatic redirect when modal is closed
+ * Goes back to main voucher page
+ */
+function setupModalRedirect() {
+  const modal = document.getElementById('successModal');
+  if (modal) {
+    // Listen for modal close event
+    modal.addEventListener('hidden.bs.modal', function () {
+      window.location.href = 'freude-schenken.html';
+    });
+  }
+}
+
+// =============================================================================
+// MAIN SETUP - Everything starts here when page loads
+// =============================================================================
+
+/**
+ * Main function that runs when page is ready
+ * Sets up all event listeners and initializes the voucher system
+ */
+document.addEventListener('DOMContentLoaded', function () {
+  // Start page animation immediately
+  startPageAnimation();
+
+  // Get all form elements (REQUIRED: these exact IDs/selectors)
   const form = document.querySelector('form');
-
-  form.addEventListener(
-    'submit',
-    (event) => {
-      form.classList.add('was-validated');
-      event.preventDefault(); // Always prevent default form submission
-      event.stopPropagation();
-
-      if (form.checkValidity()) {
-        showSuccessModal();
-        console.log('Form submitted successfully!');
-      } else {
-        console.log('Form validation failed');
-      }
-    },
-    false
+  const designSelect = document.getElementById('motivSelect');
+  const nameInput = document.getElementById('recipientName');
+  const customRadio = document.getElementById('betragCostume');
+  const customInput = document.getElementById('wunschbetrag');
+  const allAmountRadios = document.querySelectorAll(
+    'input[name="amountRadio"]'
   );
 
-  // Function to toggle required attribute
-  function toggleCustomAmountRequired() {
-    if (customRadio.checked) {
-      customAmountInput.setAttribute('required', 'required');
-    } else {
-      customAmountInput.removeAttribute('required');
-      customAmountInput.value = ''; // Clear value when not selected
-    }
+  // Setup modal redirect behavior
+  setupModalRedirect();
+
+  // === FORM SUBMISSION ===
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      // Prevent normal form submission
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Add Bootstrap validation styling
+      form.classList.add('was-validated');
+
+      // Check if form is valid
+      if (form.checkValidity()) {
+        // Form is valid - show success
+        showSuccessMessage();
+        console.log('Form submitted successfully!');
+      } else {
+        // Form has errors - let Bootstrap show them
+        console.log('Form validation failed');
+      }
+    });
   }
 
-  motivSelect.addEventListener('change', function () {
-    updatePreview();
-  });
+  // === REAL-TIME PREVIEW UPDATES ===
 
-  recipientInput.addEventListener('input', function () {
-    updatePreview();
-  });
+  // Update preview when design changes
+  if (designSelect) {
+    designSelect.addEventListener('change', updateVoucherPreview);
+  }
 
-  // Add event listeners to all radio buttons
-  allRadios.forEach((radio) => {
+  // Update preview when name changes
+  if (nameInput) {
+    nameInput.addEventListener('input', updateVoucherPreview);
+  }
+
+  // Update preview when amount selection changes
+  allAmountRadios.forEach(function (radio) {
     radio.addEventListener('change', function () {
-      toggleCustomAmountRequired();
-      updatePreview();
+      updateCustomAmountRequirement();
+      updateVoucherPreview();
     });
   });
 
-  // Add event listener to custom amount input
-  customAmountInput.addEventListener('input', function () {
-    if (customRadio.checked) {
-      updatePreview();
-    }
-  });
+  // Update preview when custom amount value changes
+  if (customInput) {
+    customInput.addEventListener('input', function () {
+      if (customRadio && customRadio.checked) {
+        updateVoucherPreview();
+      }
+    });
+  }
 
-  // Initial setup
-  toggleCustomAmountRequired();
+  // === INITIAL SETUP ===
 
-  // Initiale Vorschau
-  updatePreview();
+  // Set initial state for custom amount field
+  updateCustomAmountRequirement();
+
+  // Create initial voucher preview
+  updateVoucherPreview();
+
+  // Log success for debugging
+  console.log("Paula's Garden Voucher System ready!");
 });
 
-function downloadVoucher() {
-  const canvas = document.getElementById('voucherCanvas');
-  canvas.toBlob(function (blob) {
-    const link = document.createElement('a');
-    link.download = 'paulas_garden_gutschein.png';
-    link.href = URL.createObjectURL(blob);
-    link.click();
-  });
-}
-
-/* ANIMATIONEN STYLING */
-
-/* BODY ANIMATION */
-// window.addEventListener('load', function () {
-//   document.body.style.opacity = '1';
-// });
-
-/* ANIMATION KACHELN STARTSEITE + WEITERLEITUNG */
-// document.addEventListener('DOMContentLoaded', function () {
-//   const kacheln = document.querySelectorAll('.kachel');
-
-//   kacheln.forEach(function (kachel) {
-//     const link = kachel.dataset.link; // z. B. <div class="kachel" data-link="lovestory.html">
-
-//     const handleClick = (e) => {
-//       e.preventDefault(); // wichtig für touch
-
-//       kachel.classList.add('rotate');
-
-//       setTimeout(() => {
-//         kachel.classList.remove('rotate');
-
-//         if (link) {
-//           window.location.href = link;
-//         }
-//       }, 600); // Dauer der Animation + Rückdrehung
-//     };
-
-//     kachel.addEventListener('click', handleClick);
-//     kachel.addEventListener('touchstart', handleClick, { passive: false });
-//   });
-// });
-
-/*ANIMATION NAVIGATION */
-// document.querySelectorAll('a[href]').forEach(function (link) {
-//   const href = link.getAttribute('href');
-
-//   // Nur interne Links
-//   if (href && !href.startsWith('#') && !href.startsWith('http')) {
-//     link.addEventListener('click', function (e) {
-//       e.preventDefault();
-//       document.body.classList.remove('loaded'); // Fade-Out
-//       setTimeout(() => {
-//         window.location.href = href;
-//       }, 150); // entspricht CSS-Transition-Zeit
-//     });
-//   }
-// });
+/**
+ * ============================================================================
+ * SETUP CHECKLIST FOR IMPLEMENTATION:
+ * ============================================================================
+ *
+ * ✅ HTML ELEMENTS NEEDED:
+ * - <select id="motivSelect"> for design selection
+ * - <input id="recipientName"> for recipient name
+ * - <input type="radio" name="amountRadio"> for amount options
+ * - <input type="radio" id="betragCostume" value="costume"> for custom amount
+ * - <input id="wunschbetrag"> for custom amount value
+ * - <canvas id="voucherCanvas"> for voucher preview
+ * - <div id="successModal"> Bootstrap modal for success message
+ * - <form> element wrapping all inputs
+ *
+ * ✅ FILES NEEDED:
+ * - assets/images/gutschein/gutschein-roses.png
+ * - assets/images/gutschein/gutschein-flower-power.png
+ * - assets/images/gutschein/gutschein-bees.png
+ * - assets/images/gutschein/gutschein-halloween.png
+ *
+ * ✅ INLINE STYLE FOR FADE-IN ANIMATION:
+ * - <body style="opacity: 0">
+ *
+ * ✅ EXTERNAL LIBRARIES:
+ * - Bootstrap 5 CSS and JS for modal functionality
+ */
