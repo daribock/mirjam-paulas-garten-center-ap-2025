@@ -1,0 +1,230 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 1366px;
+  height: 1024px;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  max-height: 1366px;
+  max-width: 1024px;
+}
+
+.bg {
+  background-color: #f6f2eb;
+}
+
+.bg-pink {
+  background-color: #f9a5a5;
+}
+
+.page-item.active .page-link {
+  background-color: #f9a5a5 !important;
+  color: #bc2724 !important;
+}
+
+.bg-grün {
+  background-color: #1e3d32;
+}
+
+.bg-grün-80 {
+  background-color: #1e3d32a9;
+}
+
+h1 {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: xx-large;
+  color: #1e3d32;
+}
+
+h2 {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: larger;
+  color: #1e3d32;
+}
+
+h3 {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: x-large;
+  color: #bc2724;
+}
+
+p {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: larger;
+}
+
+Caption {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: small;
+}
+
+.button,
+.button:focus {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: x-large;
+  background-color: #f9a5a5;
+  color: #bc2724 !important;
+  border: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.button:active {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: x-large;
+  background-color: #f9a5a5;
+  color: #bc2724;
+  border: none;
+  transform: scale(0.96);
+}
+
+.text-red {
+  color: #bc2724;
+}
+
+.text-pink {
+  color: #f9a5a5;
+}
+
+.text-dark {
+  color: #1e3d32;
+}
+
+.text-light {
+  color: #f6f2eb;
+}
+
+.border-green {
+  border-color: #496157 !important;
+}
+
+.nav-klein-box {
+  height: 165px;
+  width: 170px;
+}
+
+.nav-klein-icon {
+  width: 30px;
+}
+
+.modal-m {
+  height: 680px;
+  width: 200px;
+}
+
+input,
+select,
+.form-check-input,
+.form-check,
+.form-check-label {
+  /* background-color: #f6f2eb !important; */
+  border-color: #bc2724 !important;
+}
+
+input[type='checkbox']:checked,
+input[type='radio']:checked {
+  background-color: #bc2724 !important;
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/urbanist-v17-latin-300.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-regular - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/urbanist-v17-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-500 - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/urbanist-v17-latin-500.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-600 - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/urbanist-v17-latin-600.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-700 - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/urbanist-v17-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-800 - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 800;
+  src: url('fonts/urbanist-v17-latin-800.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* urbanist-900 - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 900;
+  src: url('fonts/urbanist-v17-latin-900.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-regular - latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/inter-v19-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}

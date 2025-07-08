@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Größe des Frames -->
+    <!-- <meta
+      name="viewport"
+      content="width=1366, height=1024, initial-scale=1.0"
+    /> -->
+    <title>Paula's Garden</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body style="opacity: 0">
+    <!--Side Navigation mit Off-Canvas-->
+    <div class="d-flex content-wrapper gap-5">
+      <aside>
+        <nav
+          class="bg-pink d-flex flex-column align-items-center"
+          style="width: 115px; height: 1024px"
+        >
+          <!-- Logo im Menü-->
+          <img
+            src="assets/images/logo/logo.png"
+            alt="Logo Paulas Garden"
+            class="w-100 p-3 mt-3"
+          />
+          <!-- Nur Burger-Icon oben -->
+          <button
+            class="navbar-toggler p-3 mt-5"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <img
+              src="assets/icons/burger-menu-icon.svg"
+              alt="Burger_Menü_Icon"
+            />
+          </button>
+          <!-- Offcanvas Menü (links) -->
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <!-- Logo im Menü-->
+              <img
+                src="assets/images/logo/logo.png"
+                alt="Logo Paulas Garden"
+                class="w-25 mt-3"
+              />
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body mt-5" style="max-width: 450px">
+              <div class="row row-cols-2 g-3">
+                <!-- START (allein oben) -->
+                <div class="col-12">
+                  <div class="nav-klein-box bg-grün rounded-5">
+                    <a
+                      href="index.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h1 class="text-pink fs-5">Start</h1>
+                      <img
+                        src="assets/icons/tree.svg"
+                        class="nav-klein-icon align-self-end align-self-end"
+                        alt="Baum Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Andere Menüpunkte gruppiert -->
+                <!-- Paulas Garden Lovestory -->
+                <div class="col">
+                  <div class="nav-klein-box bg-pink rounded-5">
+                    <a
+                      href="paulas-garden-lovestory.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-red fs-6">
+                        Paula’s<br />Garden<br />Lovestory
+                      </h2>
+                      <img
+                        src="assets/icons/heart.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Herz Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Blühende Angebote -->
+                <div class="col">
+                  <div class="nav-klein-box bg-grün rounded-5">
+                    <a
+                      href="bluehende-angebote.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-pink fs-6">Blühende<br />Angebote</h2>
+                      <img
+                        src="assets/icons/flower.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Blume Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Freude schenken -->
+                <div class="col">
+                  <div class="nav-klein-box bg-grün rounded-5">
+                    <a
+                      href="freude-schenken.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-pink fs-6">Freude<br />schenken</h2>
+                      <img
+                        src="assets/icons/geschenk.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Geschenk Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Grüne Events -->
+                <div class="col">
+                  <div class="nav-klein-box bg-pink rounded-5">
+                    <a
+                      href="gruene-events.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-red fs-6">Grüne<br />Events</h2>
+                      <img
+                        src="assets/icons/calender.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Kalender Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Blüten News -->
+                <div class="col">
+                  <div class="nav-klein-box bg-pink rounded-5">
+                    <a
+                      href="blueten-news.html"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-red fs-6">Blüten<br />News</h2>
+                      <img
+                        src="assets/icons/paper-plane.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Flugzeug Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Paulas Garden entdecken -->
+                <div class="col">
+                  <div class="nav-klein-box bg-grün rounded-5">
+                    <a
+                      href="#"
+                      class="d-flex p-3 h-100 flex-column justify-content-between text-decoration-none"
+                    >
+                      <h2 class="text-pink fs-6">
+                        Paula’s<br />Garden<br />entdecken
+                      </h2>
+                      <img
+                        src="assets/icons/3-trees.svg"
+                        class="nav-klein-icon align-self-end"
+                        alt="Baum Icon"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="flex-grow-1">
+        <!-- Page header -->
+        <header>
+          <!-- Icon oben -->
+          <div class="row w-25 mt-4">
+            <img
+              src="assets/icons/geschenk.svg"
+              class="float-start w-25"
+              alt="Blume Icon"
+            />
+          </div>
+
+          <!-- Überschrift -->
+          <div class="row mt-4">
+            <h1 class="text-dark">Gutscheine für Paula’s Garden</h1>
+          </div>
+        </header>
+
+        <!-- Section for the form -->
+        <section>
+          <!-- Formular -->
+          <form novalidate>
+            <fieldset>
+              <div class="row row-cols-2">
+                <div class="col">
+                  <!-- Motiv -->
+                  <section class="mb-3">
+                    <label for="motivSelect" class="form-label"
+                      >Wähle dein Motiv</label
+                    >
+                    <select class="form-select" id="motivSelect">
+                      <!-- <option >Motiv auswählen</option> -->
+                      <option selected value="roses">Roses and More</option>
+                      <option value="flower-power">Flower Power</option>
+                      <option value="bees">Bees</option>
+                      <option value="halloween">Halloween</option>
+                    </select>
+                  </section>
+
+                  <section>
+                    <h2>Weitere Angaben für den Geschenkgutschein</h2>
+
+                    <!-- Für wen -->
+                    <div class="mb-3">
+                      <label for="recipientName" class="form-label"
+                        >1. Für wen ist der Gutschein?</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="recipientName"
+                        maxlength="22"
+                        required
+                        placeholder="Max Mustermann"
+                      />
+                    </div>
+
+                    <!-- Betrag -->
+                    <div class="mb-3">
+                      <label class="col-form-label pt-0">
+                        2. Wähle deinen Wunschbetrag:
+                      </label>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="amountRadio"
+                          id="betrag10"
+                          value="10"
+                          checked
+                        /><label class="form-check-label" for="betrag10"
+                          >10 €</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="amountRadio"
+                          id="betrag25"
+                          value="25"
+                        /><label class="form-check-label" for="betrag25"
+                          >25 €</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="amountRadio"
+                          id="betrag50"
+                          value="50"
+                        /><label class="form-check-label" for="betrag50"
+                          >50 €</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="amountRadio"
+                          id="betrag100"
+                          value="100"
+                        /><label class="form-check-label" for="betrag100"
+                          >100 €</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="amountRadio"
+                          id="betragCostume"
+                          value="costume"
+                        /><label class="form-check-label" for="betragCostume"
+                          ><input
+                            type="number"
+                            class="form-control"
+                            id="wunschbetrag"
+                            placeholder="wunschbetrag"
+                            maxlength="15"
+                        /></label>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2>Angaben zum Käufer</h2>
+                    <!-- Vorname -->
+                    <div class="mb-3 row mt-4">
+                      <label for="Vorname" class="col form-label"
+                        >Vorname*</label
+                      >
+                      <input
+                        type="text"
+                        class="col form-control"
+                        id="Vorname"
+                        placeholder="Vorname"
+                        required
+                      />
+                    </div>
+                    <!-- Name -->
+                    <div class="mb-3 row">
+                      <label for="Name" class="col form-label">Name*</label>
+                      <input
+                        type="text"
+                        class="col form-control"
+                        id="Name"
+                        placeholder="Name"
+                        required
+                      />
+                    </div>
+                    <!-- straße -->
+                    <div class="mb-3 row">
+                      <label for="Straße" class="col form-label">Straße*</label>
+                      <input
+                        type="text"
+                        class="col form-control"
+                        id="Straße"
+                        placeholder="Straße"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 row">
+                      <label for="Hausnummer" class="col form-label"
+                        >Hausnummer*</label
+                      >
+                      <input
+                        type="text"
+                        class="col form-control"
+                        id="Hausnummer"
+                        placeholder="Hausnummer"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 row">
+                      <label for="Postleitzahl" class="col form-label"
+                        >Postleitzahl*</label
+                      >
+                      <input
+                        type="number"
+                        class="col form-control"
+                        id="Postleitzahl"
+                        placeholder="Postleitzahl"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 row">
+                      <label for="Ort" class="col form-label">Ort*</label>
+                      <input
+                        type="text"
+                        class="col form-control"
+                        id="Ort"
+                        placeholder="Ort"
+                        required
+                      />
+                    </div>
+                  </section>
+                </div>
+                <!-- Bildvorschau -->
+                <div class="col">
+                  <div class="mb-3">
+                    <div class="w-100">
+                      <canvas
+                        id="voucherCanvas"
+                        class="img-fluid border rounded"
+                        style="width: 100%; height: auto"
+                        width="1748"
+                        height="1240"
+                      ></canvas>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input rounded-5"
+                      type="checkbox"
+                      value="checked"
+                      id="privacyPolicy"
+                      required
+                    />
+                    <label class="form-check-label" for="privacyPolicy">
+                      Ich habe die Datenschutzerklärung zur Kenntnis genommen.
+                      Ich stimme zu, dass meine Angaben und Daten elektronisch
+                      erhoben und gespeichert werden. Die Einwilligung kann ich
+                      jederzeit für die Zukunft widerrufen.
+                    </label>
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      class="btn button rounded-4 mt-5"
+                      aria-label="Kaufen"
+                    >
+                      Jetzt verpflichtend kaufen
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="successModal"
+            tabindex="-1"
+            aria-labelledby="successModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <article class="modal-content p-4 px-5 bg-white rounded-5">
+                <div class="modal-header">
+                  <h1 class="modal-title row mx-3" id="modal1Label">
+                    Gutschein für Paula's Garden
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Schließen"
+                  ></button>
+                </div>
+                <div class="modal-body row">
+                  <figure class="col-6">
+                    <img
+                      src="assets/images/gutschein/smile.png"
+                      alt=""
+                      class="w-100"
+                    />
+                  </figure>
+                  <section class="col-6 mt-2">
+                    <p class="p2 mt-5">
+                      <strong
+                        >Die Bestellung deines Gutscheins ist eingegangen und
+                        wird für dich gedruckt.</strong
+                      ><br />
+                      <br />
+                      Du kannst ihn in 10 Minuten an der Kasse 4 abholen und
+                      direkt mit deinen weiteren Einkäufen bezahlen. Wir
+                      wünschen dir und dem von dir beschenkten Menschen viel
+                      Freude damit.
+                    </p>
+                  </section>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
