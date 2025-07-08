@@ -2,12 +2,14 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 1366px;
+  height: 1024px;
   overflow: hidden;
-  /* Keine Scrollbalken */
-  background-color: #f6f2eb;
-  /* opacity: 1;
-  transition: opacity 0.5s ease; */
-  height: 100%;
+}
+
+.content-wrapper {
+  max-height: 1366px;
+  max-width: 1024px;
 }
 
 .bg {
@@ -124,7 +126,7 @@ select,
 .form-check-input,
 .form-check,
 .form-check-label {
-  background-color: #f6f2eb !important;
+  /* background-color: #f6f2eb !important; */
   border-color: #bc2724 !important;
 }
 
@@ -139,7 +141,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 300;
-  src: url('../fonts/urbanist-v17-latin-300.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-300.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -151,7 +153,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/urbanist-v17-latin-regular.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-regular.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -163,7 +165,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/urbanist-v17-latin-500.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-500.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -175,7 +177,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/urbanist-v17-latin-600.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-600.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -187,7 +189,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/urbanist-v17-latin-700.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-700.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -199,7 +201,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/urbanist-v17-latin-800.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-800.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -211,7 +213,7 @@ input[type='radio']:checked {
   font-family: 'Urbanist';
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/urbanist-v17-latin-900.woff2') format('woff2');
+  src: url('fonts/urbanist-v17-latin-900.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -223,6 +225,6 @@ input[type='radio']:checked {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/inter-v19-latin-regular.woff2') format('woff2');
+  src: url('fonts/inter-v19-latin-regular.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
